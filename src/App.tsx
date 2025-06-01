@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import { WordForm } from './components/WordForm';
-import { WordList } from './components/WordList';
+
+import  { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Register from './pages/Register';
+import List from './pages/List';
+import Test from './pages/Test';
 
 function App() {
-  const [refresh, setRefresh] = useState(false);
-
-  const handleRefresh = () => setRefresh(!refresh);
-
   return (
-    <div>
-      <h1>英単語学習アプリ</h1>
-      <WordForm onAdd={handleRefresh} />
-      <WordList key={String(refresh)} />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/regi" element={<Register />} />
+      <Route path="/list" element={<List />} />
+      <Route path="/test" element={<Test />} />
+    </Routes>
   );
 }
 
